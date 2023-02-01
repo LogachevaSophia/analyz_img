@@ -6,14 +6,19 @@ import math
 from moviepy.editor import VideoFileClip
 
 
-try:
-    if not os.path.exists('./source/frames'):
-        os.makedirs('./source/frames')
-except OSError:
-    print('Error: Creating directory of /source/frames')
+# try:
+#     if not os.path.exists('./source/frames'):
+#         os.makedirs('./source/frames')
+# except OSError:
+#     print('Error: Creating directory of /source/frames')
 
 
 def main(video_file):
+    try:
+        if not os.path.exists('./source/frames'):
+            os.makedirs('./source/frames')
+    except OSError:
+        print('Error: Creating directory of /source/frames')
     count = int(input())
     data = cv2.VideoCapture(video_file)
     frames = data.get(cv2.CAP_PROP_FRAME_COUNT)
@@ -30,6 +35,7 @@ def main(video_file):
         name = './source/frames/frame' + str(part) + '.jpg'
         video_clip.save_frame(name, curren_duration)
         part += 1
+    return {'seconds': seconds, 'fps': saving_frames}
 
 
-main('./source/video/video.mp4')
+# main('./source/video/video.mp4')

@@ -80,7 +80,7 @@ p = [];
 p_dop = ();
 hold = False;
 
-filename = 'book1.jpg'
+filename = 'book2.jpg'
     # reading the image
 img = cv2.imread(filename, 1)
 
