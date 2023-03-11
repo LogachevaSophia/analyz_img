@@ -50,6 +50,7 @@ def click_event(event, x, y, flags, params):
             p.append(dop1[1])
             p.append(dop2[0])
             p.append(dop2[1])
+            print("p=", p)
             cv2.line(img, p[2],p[3], (0, 0, 255))
             cv2.line(img, p[1],p[3], (0, 0, 255))
             cv2.line(img, p[0],p[1], (0, 0, 255))

@@ -3,11 +3,12 @@ import math
 import cv2
 import scipy.spatial.distance
 import numpy as np
-import coords
+
 
 
 def perspective(_p, file_name):
     
+    #сортировка точек
     dop1 = sorted([_p[0], _p[1]], key=lambda k: [k[0]])
     dop2 = sorted([_p[2], _p[3]], key=lambda k: [k[0]])
     p = []
@@ -110,9 +111,10 @@ def perspective(_p, file_name):
     )
 
     M = cv2.getPerspectiveTransform(pts1, pts_dst)
+    return {'M':M, 'W':W, 'H':H}
     #dst = cv2.warpPerspective(img,M,(W,H))
-    dst = cv2.warpPerspective(img, M, (im_src.shape[1], im_src.shape[0]))
+    # dst = cv2.warpPerspective(img, M, (im_src.shape[1], im_src.shape[0]))
 
-    cv2.imwrite('dst.jpg', dst)
-    coords.coordsOnImage('dst.jpg', file_name, M)
-    cv2.waitKey(0)
+    # cv2.imwrite('dst.jpg', dst)
+    # coords.coordsOnImage('dst.jpg', file_name, M)
+    # cv2.waitKey(0)
