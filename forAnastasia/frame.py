@@ -16,13 +16,13 @@ from moviepy.editor import VideoFileClip
 #     print('Error: Creating directory of /source/frames')
 
 
-def main(video_file):
+def main(video_file, count):
     try:
         if not os.path.exists('./source/frames'):
             os.makedirs('./source/frames')
     except OSError:
         print('Error: Creating directory of /source/frames')
-    count = int(input())
+    #count = int(input())
     data = cv2.VideoCapture(video_file)
     frames = data.get(cv2.CAP_PROP_FRAME_COUNT)
     fps = data.get(cv2.CAP_PROP_FPS)
