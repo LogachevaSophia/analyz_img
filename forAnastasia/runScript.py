@@ -8,10 +8,11 @@ import os
 import matrix;
 import frame_modify
 
-def main(p,f):
+def main(p):
     global M, M, H
     #строим матрицу гомографии 
-    a = matrix.perspective(, f);
+    
+    a = matrix.perspective(p, 'source/frames/new/'+os.listdir('source/frames/new')[0]);
     M = a['M']
     H = a['H']
     W = a['W'] 
@@ -23,7 +24,7 @@ def main(p,f):
         if os.path.isfile(f):
             frame_modify.modify(M, f, W,H,'source/frames/modify/frame'+str(i)+'.jpg')
             i+=1;
-            print(f[len('source/frames/new')+1:])
+
     
 
     
@@ -33,4 +34,4 @@ def main(p,f):
 M = []
 H = 0;
 W = 0;
-main([(197, 240), (389, 169), (368, 428), (601, 325)],'forAnastasia/frame.jpg')
+main([(197, 240), (389, 169), (368, 428), (601, 325)])
